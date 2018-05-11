@@ -1,0 +1,161 @@
+/*specification*/
+@font-face {
+    font-family: 'Uni Sans';
+    src: url('Uni_Sans_Heavy.otf');
+}
+
+body {
+	font-family: 'Uni Sans';
+    margin-left: -100px;
+    zoom: 0.85;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: 700;
+	color: #000;
+}
+
+
+/*header*/
+.header {
+	padding-top: 50px;
+	padding-bottom: 0px;
+}
+
+.logo {
+    width: 239px;
+    height: 120px;
+}
+.search {
+    margin-top: 26px;
+    margin-left: 50px;
+    padding-top: 12px;
+    width: 550px; /* Ширина поля с кнопкой */
+    height: 70px;
+    border: 4px solid #919191; /* Параметры рамки */
+    min-height: 20px; /* Минимальная высота */
+   }
+.search__icon {
+	padding-left: 20px;
+	color: #949494;
+	font-size: 27px;
+}
+.search__input {
+	color: #919191;
+    border: none; /* Убираем рамку */
+    outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none; /* Убираем рамку в Chrome и Safari */
+    width: 274px; /* Ширина поля */
+    vertical-align: middle; /* Выравнивание по середине */
+    padding-left: 15px;
+    font-size: 20px;
+    margin-left: 20px;
+   }
+
+.location {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.location__logo {
+	color: #3d3d3d;
+    font-size: 40px;
+}
+
+.location__M {
+    margin-top: 8px;
+    margin-left: 10px;
+    color: #585858;
+    font-size: 23px;
+    padding-top: 10px;
+}
+
+/*content*/
+    /*menu*/
+
+.content {
+    margin-top: 50px;
+}
+
+.form {
+    margin-top: 50px;
+}
+
+.btn__login {
+    margin-bottom: 25px;
+    background: black;
+    color: white;
+    border: none;
+    font-size: 40px;
+    font-family: 'Uni Sans';
+     outline: none; /* Убираем свечение в Chrome и Safari */
+     -webkit-appearance: none;
+}
+
+.btn__login:hover {
+     outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
+}
+
+.btn__login:active, :focus {
+     outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
+}
+
+.form__btn {
+    margin-bottom: 15px;
+    background: white;
+    color: #5b5b5b;
+    border: none;
+    font-size: 33px;
+}
+
+.form__btn:hover {
+    color: black;
+    }
+
+.form__btn:active, :focus {
+     outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
+    }
+
+    /*offer*/
+.offer {
+    background-image: url(../img/main.png);
+
+    background-repeat: no-repeat;
+    margin-left: 70px;
+    height: 1000px;
+}           
+
+/* кнопка атосферные заведения*/
+.offer__btn1 {
+    width: 450px;
+    height: 300px;
+    margin-top: 160px;
+    margin-left: 30px;
+}
+
+/* кнопка бонусов*/
+.offer__btn2 {
+    width: 270px;
+    height: 310px;
+    margin-top: 110px;
+    margin-left: 60px;
+}
+
+/* кнопка где есть устрицы*/
+.offer__btn3 {
+    width: 400px;
+    height: 300px;
+    margin-top: 70px;
+    margin-left: 30px;
+}
+
+/* кнопка авторский сет*/
+.offer__btn4 {
+    width: 360px;
+    height: 300px;
+    margin-left: 70px;
+    margin-top: 20px; 
+}
