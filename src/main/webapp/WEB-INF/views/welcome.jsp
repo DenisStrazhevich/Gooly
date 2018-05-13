@@ -26,12 +26,12 @@
                     <img  class="logo" src="${contextPath}/resources/img/logo.png">
                 </div>
                 <div class="col-lg-7">
-                    <form class="search">
+                    <form class="search" action="<c:url value="/search"/> " method="get">
                         <div class="d-flex">
                             <div class="search__icon">
                                 <i class="fa fa-search"></i>
                             </div>
-                            <input type="search" placeholder="поиск мест" class="search__input">
+                            <input  name="searchText" type="search" placeholder="поиск мест" class="search__input">
                         </div>
                     </form>
                 </div>
@@ -85,7 +85,7 @@
                                 кафе
                             </button><br>
                         </form>
-                        <form action="index.jsp">
+                        <form action="<c:url value="/institution/bars"/> ">
                             <button type="submit" class="form__btn" >
                                 бары
                             </button><br>

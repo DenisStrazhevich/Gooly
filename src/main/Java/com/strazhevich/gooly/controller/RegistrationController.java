@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class UserController {
+public class RegistrationController {
     @Autowired
     private SecurityService securityService;
 
@@ -22,11 +22,6 @@ public class UserController {
 
     @Autowired
     private UserValidator userValidator;
-
-    @RequestMapping(value = {"/", "/welcome"},method = RequestMethod.GET)
-    public String welcome(Model model){
-        return "welcome";
-    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model){
@@ -48,19 +43,5 @@ public class UserController {
         return "redirect:/welcome";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model,String error, String logout){
-        if (error != null){
-            model.addAttribute("error","Username or password is uncorrect.");
-        }
-        if ((logout !=null)){
-            model.addAttribute("message","Logget out successfully");
-        }
-        return "login";
-    }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(Model model){
-        return "admin";
-    }
 }

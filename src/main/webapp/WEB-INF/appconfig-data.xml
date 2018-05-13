@@ -32,13 +32,36 @@
         </property>
     </bean>
 
+    <bean id="hibernate4AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.strazhevich.gooly.model.User</value>
+                <value>com.strazhevich.gooly.model.Role</value>
+                <value>com.strazhevich.gooly.model.Institution</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+                </prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
     <bean id="transactionManager"
           class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
+    <bean id="hibetnateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="hibetnateTransactionManager"/>
     <tx:annotation-driven/>
 
-    <jpa:repositories base-package="com.strazhevich.gooly.dao"/>
+    <jpa:repositories base-package="com.strazhevich.gooly.dao.JpaRepositoryInterfaces"/>
 
 </beans>

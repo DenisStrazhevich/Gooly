@@ -1,4 +1,4 @@
-package com.strazhevich.gooly.dao;
+package com.strazhevich.gooly.dao.JpaRepositoryInterfaces;
 
 import com.strazhevich.gooly.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

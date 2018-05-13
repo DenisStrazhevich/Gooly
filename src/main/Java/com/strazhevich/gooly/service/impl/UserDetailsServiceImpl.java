@@ -1,6 +1,6 @@
-package com.strazhevich.gooly.service;
+package com.strazhevich.gooly.service.impl;
 
-import com.strazhevich.gooly.dao.UserDao;
+import com.strazhevich.gooly.dao.JpaRepositoryInterfaces.UserDao;
 import com.strazhevich.gooly.model.Role;
 import com.strazhevich.gooly.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,7 +28,7 @@
     </authentication-manager>
 
     <beans:bean id="userDetailsService"
-                class="com.strazhevich.gooly.service.UserDetailsServiceImpl"/>
+                class="com.strazhevich.gooly.service.impl.UserDetailsServiceImpl"/>
 
     <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
