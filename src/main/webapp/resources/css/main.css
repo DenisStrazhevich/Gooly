@@ -17,9 +17,12 @@ h1, h2, h3, h4, h5 {
 
 
 /*header*/
+
+
+/*header*/
 .header {
-	padding-top: 50px;
-	padding-bottom: 0px;
+    padding-top: 50px;
+    padding-bottom: 0px;
 }
 
 .logo {
@@ -34,23 +37,23 @@ h1, h2, h3, h4, h5 {
     height: 70px;
     border: 4px solid #919191; /* Параметры рамки */
     min-height: 20px; /* Минимальная высота */
-   }
+}
 .search__icon {
-	padding-left: 20px;
-	color: #949494;
-	font-size: 27px;
+    padding-left: 20px;
+    color: #949494;
+    font-size: 27px;
 }
 .search__input {
-	color: #919191;
+    color: #919191;
     border: none; /* Убираем рамку */
     outline: none; /* Убираем свечение в Chrome и Safari */
     -webkit-appearance: none; /* Убираем рамку в Chrome и Safari */
-    width: 274px; /* Ширина поля */
+    width: 450px; /* Ширина поля */
     vertical-align: middle; /* Выравнивание по середине */
     padding-left: 15px;
     font-size: 20px;
     margin-left: 20px;
-   }
+}
 
 .location {
     margin-left: 20px;
@@ -58,7 +61,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .location__logo {
-	color: #3d3d3d;
+    color: #3d3d3d;
     font-size: 40px;
 }
 
@@ -71,7 +74,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /*content*/
-    /*menu*/
+/*menu*/
 
 .content {
     margin-top: 50px;
@@ -88,17 +91,17 @@ h1, h2, h3, h4, h5 {
     border: none;
     font-size: 40px;
     font-family: 'Uni Sans';
-     outline: none; /* Убираем свечение в Chrome и Safari */
-     -webkit-appearance: none;
+    outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
 }
 
 .btn__login:hover {
-     outline: none; /* Убираем свечение в Chrome и Safari */
+    outline: none; /* Убираем свечение в Chrome и Safari */
     -webkit-appearance: none;
 }
 
 .btn__login:active, :focus {
-     outline: none; /* Убираем свечение в Chrome и Safari */
+    outline: none; /* Убираем свечение в Chrome и Safari */
     -webkit-appearance: none;
 }
 
@@ -112,21 +115,21 @@ h1, h2, h3, h4, h5 {
 
 .form__btn:hover {
     color: black;
-    }
+}
 
 .form__btn:active, :focus {
-     outline: none; /* Убираем свечение в Chrome и Safari */
+    outline: none; /* Убираем свечение в Chrome и Safari */
     -webkit-appearance: none;
-    }
+}
 
-    /*offer*/
+/*offer*/
 .offer {
-    background-image: url(../img/main.png);
+    background-image: url(/resources/img/main.png);
 
     background-repeat: no-repeat;
     margin-left: 70px;
     height: 1000px;
-}           
+}
 
 /* кнопка атосферные заведения*/
 .offer__btn1 {
@@ -157,5 +160,341 @@ h1, h2, h3, h4, h5 {
     width: 360px;
     height: 300px;
     margin-left: 70px;
-    margin-top: 20px; 
+    margin-top: 20px;
+}
+.restaurants{
+    margin-left: 35px;
+    margin-top: 40px;
+}
+.restaurants h1{
+    font-size: 64.74px;
+
+}
+.infoofRest {
+    margin-top: 8px;
+}
+.restaurants h3 {
+    font-size: 38px;
+    color: #2c2c2c;
+}
+.restaurants p {
+    font-size: 19px;
+    color: #58585b;
+    margin-top: 18px;
+}
+
+ul.restaurants  li {
+    display: inline;
+    width: 400px;
+}
+.restaurants li{
+    float: left;
+    margin-left: 25px;
+
+}
+.rest img{
+    margin-left: 10px;
+    width: 495px;
+}
+.rest__btn {
+    margin-left: 10px;
+}
+.rest__btn button {
+    margin-left: 35px;
+    margin-bottom: 10px;
+    width: 170px;
+    height: 70px;
+    background: white;
+    color: #5b5b5b;
+    border-color: #191919;
+    font-size: 22px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.rest__btn button:hover {
+    background-color: black;
+    color: white;
+}
+
+.rest__btn button:active, :focus {
+    outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
+}
+.rest__btnBlack button {
+    margin-left: 0px;
+    width: 492px;
+    height: 70px;
+    background: white;
+    color: white;
+    border-color: #191919;
+    font-size: 22px;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.rest__btnBlack button:hover {
+    background-color: white;
+    color: black;
+}
+
+.rest__btn button:active, :focus {
+    outline: none; /* Убираем свечение в Chrome и Safari */
+    -webkit-appearance: none;
+}
+#btnInterier {
+    margin-left: 28px;
+}
+
+/*заказ стола*/
+.oknoZakaza {
+    margin-top: 47px;
+    margin-left: 30px ;
+}
+
+.oknoZakaza h6 {
+    width: 400px;
+    color: #58585b;
+}
+ul.oknoZakaza  li {
+    display: inline;
+    width: 400px;
+}
+.oknoZakaza li {
+    float: left;
+    margin-left: 25px;
+}
+.date {
+    margin-top: 30px;
+}
+
+.date1 {
+
+    width: 300px;
+    height: 55px;
+    border: 2px solid black;
+}
+.date1 img {
+    height: 20px;
+    width: 20px;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+.date1 p{
+    text-align: center;
+    margin-left: 53px;
+    font-size: 18px;
+    padding-top: 12px;
+}
+.addDel {
+    border: 2px solid black;
+    width: 200px;
+    height: 55px;
+    margin-left: 15px;
+}
+.add {
+    margin-top: -2px;
+    margin-left: -17px;
+    height: 55px;
+    width: 55px;
+    background: black;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+.add:hover{
+    background: white;
+    color: black;
+    border: 2px solid black;
+}
+.del {
+    margin-top: -2px;
+    margin-right: -17px;
+    height: 55px;
+    width: 55px;
+    background: black;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+.del:hover{
+    background: white;
+    color: black;
+    border: 2px solid black;
+}
+
+#add_num {
+    height: 40px;
+    width: 120px;
+    padding-top: 15px;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+}
+.status__1 {
+    color: black;
+    background: black;
+    width: 45px;
+    height: 30px;
+}
+.date2 p {
+    padding-top: 4px;
+    margin-left: 10px;
+    color: #2c2c2c;
+
+}
+
+.status__2 {
+    color: white;
+    background: white;
+    width: 44px;
+    height: 30px;
+    border: 1px solid black;
+}
+.date2 {
+    margin-top: 30px;
+}
+
+#addTime {
+    width: 120px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+.statusTime {
+    margin-left: 40px;
+    padding-top: 13px;
+}
+.shema {
+    margin-left: 14px;
+    background-size: 660px;
+    background-image: url(/resources/img/shema.png);
+    background-repeat: no-repeat;
+}
+.blackTable {
+    background-size: 70px;
+    background-image: url(/resources/img/blackTable.png);
+    background-repeat: no-repeat;
+}
+.whiteTable{
+    background-image: url(/resources/img/whiteTable.png);
+    background-size: 70px;
+    background-repeat: no-repeat;
+}
+.tables {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.whiteTable, .blackTable {
+
+}
+.whiteTable p {
+    color: black;
+    font-size: 18px;
+    margin-top: 11px;
+    margin-left: 20px;
+    padding-left: 10px;
+    margin-right: 50px;
+}
+.blackTable p {
+    color: white;
+    font-size: 18px;
+    margin-top: 11px;
+    margin-left: 20px;
+    padding-left: 10px;
+    margin-right: 50px;
+}
+#t7 {
+    margin-left: 10px;
+}
+#t1 {
+    margin-left: -10px;
+}
+#t10 p{
+    padding-left: 5px;
+}
+#t11 p{
+    padding-left: 7px;
+}
+#t3 {
+    margin-top: 60px;
+    margin-left: -10px;
+}
+#t12 {
+    margin-top: 80px;
+    margin-left: 97px;
+}
+#t13 {
+    margin-top: 80px;
+    margin-left: -5px;
+}
+#t12 p{
+    margin-left: 17px;
+}
+#t13 p{
+    margin-left: 17px;
+}
+#t4 {
+    height: 50px;
+    margin-left: -10px;
+    margin-top: 9px;
+}
+#t4 p{
+    padding-top: 10px;
+}
+#t5 {
+    height: 50px;
+    margin-left: -10px;
+    margin-top: 36px;
+}
+#t5 p{
+    padding-top: 10px;
+}
+#t6 {
+    height: 50px;
+    margin-left: -10px;
+    margin-top: 36px;
+    margin-bottom: 10px;
+}
+#t6 p{
+    padding-top: 10px;
+}
+.selectTable {
+    padding-left: 190px;
+    margin-top: 30px;
+}
+.selectTable p{
+    font-size: 20px;
+    margin-right: 20px;
+    padding-top: 13px;
+}
+#numTable {
+    height: 50px;
+    width: 120px;
+    border: 1px solid black;
+    font-size: 25px;
+    text-align: center;
+}
+.reserv {
+    border: none    ;
+    font-size: 25px;
+    color: white;
+    background: black;
+    width: 500px;
+    height: 70px ;
+    margin-left: 80px;
+}
+.reserv:hover {
+    color: black;
+    background: white;
+    border: 2px solid black;
+}
+.R {
+    height: 100px;
+}
+*{
+    outline: none !important
 }

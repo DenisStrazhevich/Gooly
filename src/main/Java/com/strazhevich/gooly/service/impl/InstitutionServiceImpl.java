@@ -22,6 +22,12 @@ public class InstitutionServiceImpl implements InstitutionService {
 
     @Override
     @Transactional
+    public Institution getInstitutionByName(String name) {
+        return institutionDao.getInstitutionByName(name);
+    }
+
+    @Override
+    @Transactional
     public List<Institution> getByName(String name) {
         return institutionDao.getByName(name);
     }

@@ -7,7 +7,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title>GOOLY</title>
@@ -80,12 +80,14 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <form action="index.jsp">
+                        <form action="<c:url value="/institution/bars"/>">
+                            <input type="text" name="institutionType" value="Кафе" hidden="true">
                             <button type="submit" class="form__btn" >
                                 кафе
                             </button><br>
                         </form>
                         <form action="<c:url value="/institution/bars"/> ">
+                            <input type="text" name="institutionType" value="Бары" hidden="true">
                             <button type="submit" class="form__btn" >
                                 бары
                             </button><br>
@@ -97,12 +99,13 @@
                         </form>
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
-                                кафейни
+                                кофейни
                             </button><br>
                         </form>
-                        <form action="index.jsp">
+                        <form action="<c:url value="/account"/>">
+                            <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                             <button type="submit" class="form__btn" >
-                                антикафе
+                                кабинет
                             </button><br>
                         </form>
                         <form action="index.jsp">

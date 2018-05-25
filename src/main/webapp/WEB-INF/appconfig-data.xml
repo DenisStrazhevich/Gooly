@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
@@ -32,7 +32,7 @@
         </property>
     </bean>
 
-    <bean id="hibernate4AnnotatedSessionFactory"
+    <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
@@ -40,6 +40,8 @@
                 <value>com.strazhevich.gooly.model.User</value>
                 <value>com.strazhevich.gooly.model.Role</value>
                 <value>com.strazhevich.gooly.model.Institution</value>
+                <value>com.strazhevich.gooly.model.Tables</value>
+                <value>com.strazhevich.gooly.model.Orders</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -57,7 +59,7 @@
     </bean>
 
     <bean id="hibetnateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <tx:annotation-driven transaction-manager="hibetnateTransactionManager"/>
     <tx:annotation-driven/>

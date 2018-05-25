@@ -1,6 +1,8 @@
 package com.strazhevich.gooly.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "institution")
@@ -32,6 +34,17 @@ public class Institution {
 
     @Column(name = "email")
     private String email;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "institution")
+    private Set<Tables> tables;
+
+    public Set<Tables> getTables() {
+        return tables;
+    }
+
+    public void setTables(Set<Tables> tables) {
+        this.tables = tables;
+    }
 
     public int getId() {
         return id;

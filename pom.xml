@@ -11,7 +11,7 @@
 
   <name>Gooly Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://www.gooly.com</url>
 
     <properties>
         <spring.version>4.2.0.RELEASE</spring.version>

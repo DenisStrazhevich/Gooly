@@ -33,6 +33,9 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    //private Set<Orders> orders;
+
     public User() {
     }
 
@@ -99,4 +102,13 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+/*
+    public Set<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Orders> orders) {
+        this.orders = orders;
+    }
+    */
 }
