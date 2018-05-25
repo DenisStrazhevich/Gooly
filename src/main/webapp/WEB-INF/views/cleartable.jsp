@@ -130,12 +130,15 @@ To change this template use File | Settings | File Templates.
                                 кофейни
                             </button><br>
                         </form>
-                        <form action="<c:url value="/account"/>">
-                            <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
-                            <button type="submit" class="form__btn" >
-                                кабинет
-                            </button><br>
-                        </form>
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
+                            <form method="get" action="<c:url value="/account"/>">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
+                                <button type="submit" class="form__btn" >
+                                    кабинет
+                                </button><br>
+                            </form>
+                        </sec:authorize>
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
                                 скидки
@@ -188,6 +191,7 @@ To change this template use File | Settings | File Templates.
                                                     свободный
                                                 </p>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

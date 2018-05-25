@@ -72,7 +72,7 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
                             <form method="post" action="<c:url value="/logout"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="form__btn" >
@@ -102,12 +102,16 @@
                                 кофейни
                             </button><br>
                         </form>
-                        <form action="<c:url value="/account"/>">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
+                        <form method="get" action="<c:url value="/account"/>">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                             <button type="submit" class="form__btn" >
                                 кабинет
                             </button><br>
                         </form>
+                        </sec:authorize>
+
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
                                 скидки

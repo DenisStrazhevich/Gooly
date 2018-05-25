@@ -16,7 +16,7 @@
 <h1> ${user.username}</h1>
 
 <h2>Вы забронировали место на:</h2><br>
-<h3>${orders.orderTime}</h3>
+<!--<h3>${orders.orderTime}</h3>-->
 
 </body>
 </html>

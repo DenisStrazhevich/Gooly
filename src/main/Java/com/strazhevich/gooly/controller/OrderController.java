@@ -6,7 +6,10 @@ import com.strazhevich.gooly.service.InstitutionService;
 import com.strazhevich.gooly.service.OrderService;
 import com.strazhevich.gooly.service.TablesService;
 import com.strazhevich.gooly.service.UserService;
+import com.strazhevich.gooly.service.impl.MyTimer;
+import com.strazhevich.gooly.service.impl.QuickOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,11 +29,13 @@ public class OrderController {
     UserService userService;
     @Autowired
     OrderService orderService;
+    @Autowired
+    QuickOrderService quickOrderService;
+
 
     @RequestMapping(value = "/order", method = RequestMethod.GET )
     public String order(Map<String,Object> map, Model model, @RequestParam("institutionName") String name, @RequestParam("phone") String phone){
         map.put("order", new Orders());
-        //map.put("name",name);
         map.put("institutions", institutionService.getInstitutionByName(name));
         map.put("user",userService.findByUsername(phone));
         model.addAttribute("listTable", tablesService.listTablesByInstitutionName(name));
@@ -47,4 +52,22 @@ public class OrderController {
         return "redirect:/account";
     }
 
+    @RequestMapping(value = "/quickorder", method = RequestMethod.GET )
+    public String quickorderPage(Map<String,Object> map, Model model, @RequestParam("institutionName") String name, @RequestParam("phone") String phone){
+        map.put("order", new Orders());
+        map.put("institutions", institutionService.getInstitutionByName(name));
+        map.put("user",userService.findByUsername(phone));
+        model.addAttribute("listTable", tablesService.listTablesByInstitutionName(name));
+
+        return "quickorder";
+    }
+
+    @RequestMapping(value = "/quickorder", method = RequestMethod.POST)
+    public String quickorder(@ModelAttribute Orders order){
+
+        int tableNumber = order.getOrderTableNumber();
+
+        quickOrderService.quickOrder(order,tableNumber);
+        return "redirect:/welcome";
+    }
 }

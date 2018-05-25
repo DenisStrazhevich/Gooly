@@ -16,6 +16,7 @@
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
+        
     </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -35,6 +36,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        
         <property name="annotatedClasses">
             <list>
                 <value>com.strazhevich.gooly.model.User</value>
@@ -44,6 +46,7 @@
                 <value>com.strazhevich.gooly.model.Orders</value>
             </list>
         </property>
+
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect

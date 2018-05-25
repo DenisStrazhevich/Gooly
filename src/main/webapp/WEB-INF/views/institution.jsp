@@ -107,11 +107,15 @@
                                 кафейни
                             </button><br>
                         </form>
-                        <form action="index.jsp">
-                            <button type="submit" class="form__btn" >
-                                антикафе
-                            </button><br>
-                        </form>
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
+                            <form method="get" action="<c:url value="/account"/>">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
+                                <button type="submit" class="form__btn" >
+                                    кабинет
+                                </button><br>
+                            </form>
+                        </sec:authorize>
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
                                 скидки
@@ -189,39 +193,52 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="end">
-                                            <div class="rest__btn col-lg-8 d-flex">
-                                                <form class="rest__btnBlack" action="<c:url value="/order"/> ">
+                                    <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
+
+
+                                        <div class="row">
+                                            <div class="end">
+                                                <div class="rest__btn col-lg-8 d-flex">
+                                                    <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN','ROLE_BAKEHOUSE')">
+                                                        <form class="rest__btnBlack" action="<c:url value="/order"/> ">
+                                                            <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                            <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
+                                                            <button type="submit">
+                                                                забронировать стол
+                                                            </button><br>
+                                                        </form>
+                                                    </sec:authorize>
+                                                    <form id="btnInterier" action="#">
+                                                        <button type="submit" >
+                                                            позвонить
+                                                        </button>
+                                                    </form>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                                                <form class="rest__btnBlack" action="<c:url value="/quickorder"/> ">
                                                     <input type="text" name="institutionName" value="${institution.name}" hidden="true">
                                                     <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
                                                     <button type="submit">
-                                                        забронировать стол
+                                                        Успей за 15 минут
                                                     </button><br>
-
                                                 </form>
-
-                                                <form id="btnInterier" action="#">
-                                                    <button type="submit" >
-                                                        позвонить
-                                                    </button>
-                                                </form>
-                                                <br>
-                                            </div>
-                                        </div>
-                                        <sec:authorize access="hasRole('ROLE_' + '${institution.name}')">
-                                            <div class="row">
-                                                <div class="rest__btn col-lg-12" >
-                                                    <form class="rest__btnBlack" action="<c:url value="/clear"/> ">
-                                                        <input type="text" name="institutionName" value="${institution.name}" hidden="true">
-                                                        <button type="submit">
-                                                            освободить стол
-                                                        </button><br>
-                                                    </form>
+                                            </sec:authorize>
+                                            <sec:authorize access="hasRole('ROLE_' + '${institution.name}')">
+                                                <div class="row">
+                                                    <div class="rest__btn col-lg-12" >
+                                                        <form class="rest__btnBlack" action="<c:url value="/clear"/> ">
+                                                            <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                            <button type="submit">
+                                                                освободить стол
+                                                            </button><br>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </sec:authorize>
-                                    </div>
+                                            </sec:authorize>
+                                        </div>
+                                    </sec:authorize>
                                     <br>
                                 </c:forEach>
 

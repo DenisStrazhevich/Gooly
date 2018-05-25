@@ -160,29 +160,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <c:url var="addOrder" value="/order/add"/>
-                            <form:form method="post" action="${addOrder}" commandName="order">
-                                <div class="row">
-                                    <div class="date d-flex">
-                                        <div class=" col-lg-7">
-                                            <div class="date1 d-flex">
-                                                <img src="${contextPath}/resources/img/calendar.png">
-                                                <form:input path="reservationDate" type="date" name="date" value="2018-05-22"/>
-                                                <!--<p>
-                                                    20 мая 2018
-                                                </p>-->
-                                            </div>
-                                        </div>
-                                        <div class="addDel col-lg-5">
-                                            <div class="d-flex">
-                                                <input class="add" type="button" value="+" onclick="change('add_num',0,10, 1);">
-                                                <form:input path="visitorCount" id="add_num" type="text" readonly="true" value="1"/>
-                                                <!-- <span id="add_num">1 чел.</span>-->
-                                                <input class="del" type="button" value="-" onclick="change('add_num',0,10,-1);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          <c:url var="quickorder" value="/quickorder"/>
+                            <form:form method="post" action="${quickorder}" commandName="order">
+
                                 <div class="row">
                                     <div class="date2 d-flex">
                                         <div class="col-lg-7">
@@ -201,10 +181,10 @@
                                         </div>
                                         <div class="statusTime col-lg-5">
                                             <div class="addDel d-flex">
-                                                <form:input path="orderTime" type="time" value="10:00"  />
-                                                <!--<input class="add" type="button" value="+" onclick="addNum()">
-                                                <span id="addTime">10:00</span>
-                                                <input class="del" type="button" value="-" onclick="delNum()">-->
+                                                <input class="add" type="button" value="+" onclick="change('add_num',0,10, 1);">
+                                                <form:input path="visitorCount" id="add_num" type="text" readonly="true" value="1"/>
+                                                <!-- <span id="add_num">1 чел.</span>-->
+                                                <input class="del" type="button" value="-" onclick="change('add_num',0,10,-1);">
                                             </div>
                                         </div>
                                     </div>
@@ -476,9 +456,9 @@
 
                                 <div class="row">
                                     <div class="R col-lg-12">
-                                            <button type="submit" class="reserv">
-                                                забронировать столик
-                                            </button><br>
+                                        <button type="submit" class="reserv">
+                                            забронировать столик
+                                        </button><br>
                                     </div>
                                 </div>
                             </form:form>
