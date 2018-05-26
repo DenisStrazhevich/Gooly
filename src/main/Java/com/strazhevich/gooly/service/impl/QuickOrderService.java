@@ -8,6 +8,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,19 +19,30 @@ public class QuickOrderService  {
     private TablesDao tablesDao;
     @Autowired
     private OrderDao orderDao;
-    private long delay = 10000;
+
+    private Map<String,Object> map = new HashMap<>();
+
+    @Transactional
+    @Async
+    public void cancelTask(String numbers){
+        map.forEach((k,v)->{
+            if(numbers.equals(k)){
+                Timer timer = (Timer) v;
+                timer.cancel();
+            }
+        });
+    }
 
     @Transactional
     @Async
     public void quickOrder(Orders order,int number){
+        long delay = 30000;
 
         TimerTask timerTask = new TimerTask() {
             @Override
             @Transactional
             public void run() {
-                //testik();
-                //timer.cancel();
-                Thread.currentThread().setName(order.getVisitorPhonenumber());
+                Thread.currentThread().setName(order.getVisitorPhonenumber() + order.getOrderTableNumber());
                 try{
                     tablesDao.clearTableStatusByTableNumber(number);
                 }catch (Exception e){
@@ -37,37 +50,13 @@ public class QuickOrderService  {
                 }
             }
         };
+
         orderDao.saveOder(order);
         tablesDao.changeTableStatusByTableNumber(number);
         Timer timer = new Timer();
         timer.schedule(timerTask,delay);
-
-       // if(status == 1){
-        //    tablesDao.clearTableStatusByTableNumber(number);
-       // }
-        //status = 0;
-
-        //myTimer.setNumber(number);
-        //myTimer.setTimer(timer);
-        //timer.schedule(new MyTimer(),delay);
-        //tablesDao.clearTableStatusByTableNumber(number);
+        map.put(order.getVisitorPhonenumber() + String.valueOf(order.getOrderTableNumber()),timer);
     }
-
-
-
-    /* @Async
-    @Transactional
-    public void doSomth(Orders order, int number){
-        orderDao.saveOder(order);
-        tablesDao.changeTableStatusByTableNumber(number);
-        try{
-            Thread.sleep(10000);
-        }catch (InterruptedException e){
-
-        }
-        tablesDao.clearTableStatusByTableNumber(number);
-    }
-*/
 
 
 }

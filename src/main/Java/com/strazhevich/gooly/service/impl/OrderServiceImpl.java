@@ -24,4 +24,10 @@ public class OrderServiceImpl implements OrderService{
     public Orders getOrderByNumber(String phoneNumber) {
         return orderDao.getOrderByNumber(phoneNumber);
     }
+
+    @Override
+    @Transactional
+    public Orders getOrderByInstitutionNameAndTableNumber(String institutionName, int tableNumber) {
+        return orderDao.getOrderByInstitutionNameAndTableNumber(institutionName,tableNumber);
+    }
 }

@@ -1,9 +1,22 @@
 <%--
   Created by IntelliJ IDEA.
   User: denis
-  Date: 15.05.2018
-  Time: 17:44
+  Date: 25.05.2018
+  Time: 10:04
   To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<%--
+Created by IntelliJ IDEA.
+User: denis
+Date: 15.05.2018
+Time: 17:44
+To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -138,7 +151,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h6> Бронирование столика за пару минут</h6>
+                                    <h6> Подтвердить заказ </h6>
                                 </div>
                             </div>
                             <div class="row">
@@ -160,8 +173,8 @@
                                     </div>
                                 </div>
                             </div>
-                          <c:url var="quickorder" value="/quickorder"/>
-                            <form:form method="post" action="${quickorder}" commandName="order">
+                            <c:url var="confirm" value="/confirm_order"/>
+                            <form:form method="post" action="${confirm}" >
 
                                 <div class="row">
                                     <div class="date2 d-flex">
@@ -178,14 +191,7 @@
                                                     свободный
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div class="statusTime col-lg-5">
-                                            <div class="addDel d-flex">
-                                                <input class="add" type="button" value="+" onclick="change('add_num',0,10, 1);">
-                                                <form:input path="visitorCount" id="add_num" type="text" readonly="true" value="1"/>
-                                                <!-- <span id="add_num">1 чел.</span>-->
-                                                <input class="del" type="button" value="-" onclick="change('add_num',0,10,-1);">
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -445,19 +451,17 @@
                                         <p>
                                             выбранный стол:
                                         </p>
-
-                                        <form:input path="orderTableNumber" id="numTable" type="text" name="tableNumber"/>
+                                        <input type="text" name="tableNumber" id="numTable" >
+                                        <input type="text" name="institutionName" value="${institutionName}" hidden="true">
 
                                     </div>
 
                                 </div>
-                                <form:input path="visitorName" value="${user.name}" hidden="true"/>
-                                <form:input path="visitorPhonenumber" value="${user.username}" hidden="true"/>
-                                <form:input path="orderInstitutionName" value="${institutions.name}" hidden="true"/>
+
                                 <div class="row">
                                     <div class="R col-lg-12">
                                         <button type="submit" class="reserv">
-                                            забронировать столик
+                                            Подтвердить заказ
                                         </button><br>
                                     </div>
                                 </div>
@@ -471,6 +475,9 @@
     </div>
 </section>
 
+
+</body>
+</html>
 
 </body>
 </html>

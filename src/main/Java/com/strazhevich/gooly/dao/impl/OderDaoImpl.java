@@ -7,8 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class OderDaoImpl implements OrderDao {
 
     SessionFactory sessionFactory;
@@ -32,5 +34,14 @@ public class OderDaoImpl implements OrderDao {
         query.setParameter("phoneNumber",phoneNumber);
         Orders orders = (Orders) query.uniqueResult();
         return orders;
+    }
+
+    @Override
+    public Orders getOrderByInstitutionNameAndTableNumber(String institutionName, int tableNumber) {
+        Query query = currentSession().createQuery("from Orders where orderInstitutionName =:institutionName and orderTableNumber =:tableNumber");
+        query.setParameter("institutionName",institutionName);
+        query.setParameter("tableNumber",tableNumber);
+        Orders order = (Orders) query.uniqueResult();
+        return order;
     }
 }

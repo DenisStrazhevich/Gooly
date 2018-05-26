@@ -226,6 +226,13 @@
                                                 </form>
                                             </sec:authorize>
                                             <sec:authorize access="hasRole('ROLE_' + '${institution.name}')">
+                                                <form class="rest__btnBlack" action="<c:url value="/confirm_order"/> ">
+                                                    <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                    <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
+                                                    <button type="submit">
+                                                        Успей за 15 минут
+                                                    </button><br>
+                                                </form>
                                                 <div class="row">
                                                     <div class="rest__btn col-lg-12" >
                                                         <form class="rest__btnBlack" action="<c:url value="/clear"/> ">

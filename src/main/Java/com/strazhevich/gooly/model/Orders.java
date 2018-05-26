@@ -11,6 +11,9 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "orderInstitutionName")
+    private String orderInstitutionName;
+
     @Column(name = "reservationDate")
     private Date reservationDate;
 
@@ -49,6 +52,14 @@ public class Orders {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getOrderInstitutionName() {
+        return orderInstitutionName;
+    }
+
+    public void setOrderInstitutionName(String orderInstitutionName) {
+        this.orderInstitutionName = orderInstitutionName;
     }
 
     public Date getReservationDate() {
