@@ -117,7 +117,7 @@
                                 кофейни
                             </button><br>
                         </form>
-                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
                             <form method="get" action="<c:url value="/account"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->

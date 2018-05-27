@@ -19,15 +19,15 @@ import java.util.Map;
 @Controller
 public class OrderController {
     @Autowired
-    TablesService tablesService;
+    private TablesService tablesService;
     @Autowired
-    InstitutionService institutionService;
+    private InstitutionService institutionService;
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    OrderService orderService;
+    private OrderService orderService;
     @Autowired
-    QuickOrderService quickOrderService;
+    private QuickOrderService quickOrderService;
 
 
     @RequestMapping(value = "/order", method = RequestMethod.GET )
@@ -35,6 +35,7 @@ public class OrderController {
         map.put("order", new Orders());
         map.put("institutions", institutionService.getInstitutionByName(name));
         map.put("user",userService.findByUsername(phone));
+        map.put("orderList", orderService.getOrderListByInstitutionName(name));
         model.addAttribute("listTable", tablesService.listTablesByInstitutionName(name));
 
         return "order";

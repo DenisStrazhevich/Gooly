@@ -16,6 +16,9 @@ public class Review {
     @Column(name = "user_surname")
     private String user_surname;
 
+    @Column(name = "date")
+    private String date;
+
     @Column(name = "review")
     private String review;
 
@@ -46,6 +49,14 @@ public class Review {
 
     public void setUser_surname(String user_surname) {
         this.user_surname = user_surname;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getReview() {

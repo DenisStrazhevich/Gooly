@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 @Controller
@@ -48,6 +50,8 @@ public class ReviewController {
 
     @RequestMapping(value = "/review",method = RequestMethod.POST)
     public String addReview(@ModelAttribute Review review){
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd" + " HH-mm-ss").format(Calendar.getInstance().getTime());
+        review.setDate(timeStamp);
         reviewService.saveReview(review);
         return "redirect:/welcome";
     }

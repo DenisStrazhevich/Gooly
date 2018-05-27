@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class OderDaoImpl implements OrderDao {
 
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
     @Autowired
     public OderDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -51,5 +53,13 @@ public class OderDaoImpl implements OrderDao {
         query.setParameter("tableNumber",tableNumber);
         Orders order = (Orders) query.uniqueResult();
         return order;
+    }
+
+    @Override
+    public List<Orders> getOrderListByInstitutionName(String name) {
+        Query query = currentSession().createQuery("from Orders where orderInstitutionName =:institutionName");
+        query.setParameter("institutionName",name);
+        List<Orders> list = query.list();
+        return list;
     }
 }
