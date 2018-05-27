@@ -11,13 +11,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderServiceImpl implements OrderService{
 
     @Autowired
-    OrderDao orderDao;
+    private OrderDao orderDao;
 
     @Override
     @Transactional
     public void saveOder(Orders order) {
         orderDao.saveOder(order);
     }
+
+    @Override
+    @Transactional
+    public void deleteOrderByInstitutionNameAndTableNumber(String institutionName, int tableNumber) {
+        orderDao.deleteOrderByInstitutionNameAndTableNumber(institutionName,tableNumber);
+    }
+
 
     @Override
     @Transactional

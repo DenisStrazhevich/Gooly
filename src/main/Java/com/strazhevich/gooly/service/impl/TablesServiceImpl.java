@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class TablesServiceImpl implements TablesService {
     @Autowired
-    TablesDao tablesDao;
+    private TablesDao tablesDao;
     
     @Override
     @Transactional

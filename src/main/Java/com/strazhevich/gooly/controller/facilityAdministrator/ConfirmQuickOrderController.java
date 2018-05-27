@@ -17,13 +17,13 @@ import java.util.Map;
 @Controller
 public class ConfirmQuickOrderController {
     @Autowired
-    TablesService tablesService;
+    private TablesService tablesService;
     @Autowired
-    InstitutionService institutionService;
+    private InstitutionService institutionService;
     @Autowired
-    OrderService orderService;
+    private OrderService orderService;
     @Autowired
-    QuickOrderService quickOrderService;
+    private QuickOrderService quickOrderService;
 
     @RequestMapping(value = "/confirm_order", method = RequestMethod.GET)
     public String getConfirmQuickOrderPage(Map<String,Object> map, Model model, @RequestParam("institutionName") String name){

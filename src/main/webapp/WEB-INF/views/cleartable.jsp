@@ -452,7 +452,7 @@ To change this template use File | Settings | File Templates.
                                             выбранный стол:
                                         </p>
                                         <input type="text" name="tableNumber" id="numTable" >
-                                        <!--<input type="text" name="institutionName" value="${institutionName}" hidden="true">-->
+                                        <input type="text" name="institutionName" value="${institutionName}" hidden="true">
 
                                     </div>
 

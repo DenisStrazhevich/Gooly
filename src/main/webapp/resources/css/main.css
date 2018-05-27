@@ -182,7 +182,11 @@ h1, h2, h3, h4, h5 {
     color: #58585b;
     margin-top: 18px;
 }
-
+.time {
+    margin-top: 10px;
+    margin-left: -60px;
+    width: 500px;
+}
 ul.restaurants  li {
     display: inline;
     width: 400px;

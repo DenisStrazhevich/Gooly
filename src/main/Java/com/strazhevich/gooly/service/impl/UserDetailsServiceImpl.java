@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
 
     @Override
     @Transactional(readOnly = true)

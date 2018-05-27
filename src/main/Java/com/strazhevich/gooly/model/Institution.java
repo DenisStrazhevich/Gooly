@@ -4,11 +4,14 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name = "institution")
 public class Institution {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private int id;
 
     @Column(name = "image")
@@ -37,6 +40,17 @@ public class Institution {
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "institution")
     private Set<Tables> tables;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
+    private Set<Review> reviews;
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     public Set<Tables> getTables() {
         return tables;

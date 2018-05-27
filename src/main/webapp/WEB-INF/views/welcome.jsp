@@ -80,16 +80,16 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <form action="<c:url value="/institution/bars"/>">
-                            <input type="text" name="institutionType" value="Кафе" hidden="true">
-                            <button type="submit" class="form__btn" >
-                                кафе
-                            </button><br>
-                        </form>
                         <form action="<c:url value="/institution/bars"/> ">
                             <input type="text" name="institutionType" value="Бары" hidden="true">
                             <button type="submit" class="form__btn" >
                                 бары
+                            </button><br>
+                        </form>
+                        <form action="<c:url value="/institution/bars"/>">
+                            <input type="text" name="institutionType" value="Кафе" hidden="true">
+                            <button type="submit" class="form__btn" >
+                                кафе
                             </button><br>
                         </form>
                         <form method="post" action="<c:url value="/welcome/stop"/> ">

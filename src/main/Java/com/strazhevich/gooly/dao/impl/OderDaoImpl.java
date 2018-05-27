@@ -29,6 +29,14 @@ public class OderDaoImpl implements OrderDao {
     }
 
     @Override
+    public void deleteOrderByInstitutionNameAndTableNumber(String institutionName, int tableNumber) {
+        Query query = currentSession().createQuery("delete Orders where orderInstitutionName =:institutionName and orderTableNumber =:tableNumber");
+        query.setParameter("institutionName",institutionName);
+        query.setParameter("tableNumber",tableNumber);
+        query.executeUpdate();
+    }
+
+    @Override
     public Orders getOrderByNumber(String phoneNumber) {
         Query query = currentSession().createQuery("from Orders where visitorPhonenumber =:phoneNumber");
         query.setParameter("phoneNumber",phoneNumber);

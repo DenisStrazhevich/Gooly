@@ -175,7 +175,8 @@
                                                     </button><br>
                                                 </form>
 
-                                                <form action="#">
+                                                <form action="<c:url value="/review"/>">
+                                                    <input type="text" name="institutionName" value="${institution.name}" hidden="true">
                                                     <button type="submit">
                                                         отзывы
                                                     </button><br>
@@ -198,7 +199,7 @@
 
                                         <div class="row">
                                             <div class="end">
-                                                <div class="rest__btn col-lg-8 d-flex">
+                                                <div class="rest__btn col-lg-12 d-flex">
                                                     <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN','ROLE_BAKEHOUSE')">
                                                         <form class="rest__btnBlack" action="<c:url value="/order"/> ">
                                                             <input type="text" name="institutionName" value="${institution.name}" hidden="true">
@@ -208,31 +209,34 @@
                                                             </button><br>
                                                         </form>
                                                     </sec:authorize>
-                                                    <form id="btnInterier" action="#">
-                                                        <button type="submit" >
-                                                            позвонить
-                                                        </button>
-                                                    </form>
+
                                                     <br>
                                                 </div>
                                             </div>
-                                            <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
-                                                <form class="rest__btnBlack" action="<c:url value="/quickorder"/> ">
-                                                    <input type="text" name="institutionName" value="${institution.name}" hidden="true">
-                                                    <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
-                                                    <button type="submit">
-                                                        Успей за 15 минут
-                                                    </button><br>
-                                                </form>
-                                            </sec:authorize>
-                                            <sec:authorize access="hasRole('ROLE_' + '${institution.name}')">
-                                                <form class="rest__btnBlack" action="<c:url value="/confirm_order"/> ">
-                                                    <input type="text" name="institutionName" value="${institution.name}" hidden="true">
-                                                    <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
-                                                    <button type="submit">
-                                                        Успей за 15 минут
-                                                    </button><br>
-                                                </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="end">
+                                                 <div class="rest__btn col-lg-12 d-flex">
+                                                    <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                                                        <form class="rest__btnBlack" action="<c:url value="/quickorder"/> ">
+                                                            <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                            <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
+                                                            <button type="submit">
+                                                                Успей за 15 минут
+                                                            </button><br>
+                                                        </form>
+                                                    </sec:authorize>
+                                                    <sec:authorize access="hasRole('ROLE_' + '${institution.name}')">
+                                                        <form class="rest__btnBlack" action="<c:url value="/confirm_order"/> ">
+                                                            <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                            <input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">
+                                                            <button type="submit">
+                                                                Успей за 15 минут
+                                                            </button><br>
+                                                        </form>
+                                                     </div>
+                                                </div>
+                                            </div>
                                                 <div class="row">
                                                     <div class="rest__btn col-lg-12" >
                                                         <form class="rest__btnBlack" action="<c:url value="/clear"/> ">

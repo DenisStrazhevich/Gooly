@@ -1,6 +1,7 @@
 package com.strazhevich.gooly.controller.facilityAdministrator;
 
 import com.strazhevich.gooly.service.InstitutionService;
+import com.strazhevich.gooly.service.OrderService;
 import com.strazhevich.gooly.service.TablesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +15,11 @@ import java.util.Map;
 @Controller
 public class ClearController {
     @Autowired
-    TablesService tablesService;
+    private TablesService tablesService;
     @Autowired
-    InstitutionService institutionService;
-
+    private InstitutionService institutionService;
+    @Autowired
+    private OrderService orderService;
 
     @RequestMapping(value = "/clear", method = RequestMethod.GET)
     public String clearTableStatusPage(Map<String,Object> map, Model model, @RequestParam("institutionName") String name){
@@ -28,8 +30,9 @@ public class ClearController {
     }
 
     @RequestMapping(value = "/clear",method = RequestMethod.POST)
-    public String clearTableStatus(@RequestParam("tableNumber") int tableNumber){
+    public String clearTableStatus(@RequestParam("institutionName") String institutionName, @RequestParam("tableNumber") int tableNumber){
         tablesService.clearTableStatusByTableNumber(tableNumber);
+        orderService.deleteOrderByInstitutionNameAndTableNumber(institutionName,tableNumber);
         return "redirect:/welcome";
     }
 }

@@ -44,6 +44,7 @@
                 <value>com.strazhevich.gooly.model.Institution</value>
                 <value>com.strazhevich.gooly.model.Tables</value>
                 <value>com.strazhevich.gooly.model.Orders</value>
+                <value>com.strazhevich.gooly.model.Review</value>
             </list>
         </property>
 

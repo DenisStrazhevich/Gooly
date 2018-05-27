@@ -45,6 +45,7 @@ public class QuickOrderService  {
                 Thread.currentThread().setName(order.getVisitorPhonenumber() + order.getOrderTableNumber());
                 try{
                     tablesDao.clearTableStatusByTableNumber(number);
+                    orderDao.deleteOrderByInstitutionNameAndTableNumber(order.getOrderInstitutionName(),number);
                 }catch (Exception e){
                     //tablesDao.clearTableStatusByTableNumber(number);
                 }

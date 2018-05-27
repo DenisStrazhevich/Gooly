@@ -1,15 +1,12 @@
 package com.strazhevich.gooly.controller;
 
 import com.strazhevich.gooly.model.Orders;
-import com.strazhevich.gooly.model.Tables;
 import com.strazhevich.gooly.service.InstitutionService;
 import com.strazhevich.gooly.service.OrderService;
 import com.strazhevich.gooly.service.TablesService;
 import com.strazhevich.gooly.service.UserService;
-import com.strazhevich.gooly.service.impl.MyTimer;
 import com.strazhevich.gooly.service.impl.QuickOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-    @Autowired
-    QuickOrderService quickOrderService;
+
 
     @RequestMapping(value = {"/", "/welcome"},method = RequestMethod.GET)
     public String welcome(Model model){

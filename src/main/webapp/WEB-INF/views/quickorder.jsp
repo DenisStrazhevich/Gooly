@@ -453,7 +453,7 @@
                                 </div>
                                 <form:input path="visitorName" value="${user.name}" hidden="true"/>
                                 <form:input path="visitorPhonenumber" value="${user.username}" hidden="true"/>
-                                <form:input path="orderInstitutionName" value="${institutions.name}" hidden="true"/>
+                                <form:input path="orderInstitutionName" value="${institutions.name}"  hidden="true"/>
                                 <div class="row">
                                     <div class="R col-lg-12">
                                         <button type="submit" class="reserv">

@@ -16,9 +16,9 @@ import java.util.Map;
 public class InstitutionController {
 
     @Autowired
-    InstitutionService institutionService;
+    private InstitutionService institutionService;
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(value = "/institution/bars", method = RequestMethod.GET)
     public String bars(Map<String,Object> map, @RequestParam("institutionType") String kind) {
