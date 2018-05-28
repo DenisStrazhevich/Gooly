@@ -454,13 +454,32 @@
                                 <form:input path="visitorName" value="${user.name}" hidden="true"/>
                                 <form:input path="visitorPhonenumber" value="${user.username}" hidden="true"/>
                                 <form:input path="orderInstitutionName" value="${institutions.name}"  hidden="true"/>
-                                <div class="row">
-                                    <div class="R col-lg-12">
-                                        <button type="submit" class="reserv">
-                                            забронировать столик
-                                        </button><br>
+
+                                <c:if test="${!empty orderList}">
+                                    <c:forEach items="${orderList}" var="order">
+                                        <c:if test="${order.visitorPhonenumber ne user.username}">
+                                            <div class="row">
+                                                <div class="R col-lg-12">
+                                                    <button type="submit" class="reserv">
+                                                        забронировать столик
+                                                    </button><br>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:if>
+
+                                <c:if test="${empty orderList}">
+                                    <div class="row">
+                                        <div class="R col-lg-12">
+                                            <button type="submit" class="reserv">
+                                                забронировать столик
+                                            </button><br>
+                                        </div>
                                     </div>
-                                </div>
+                                </c:if>
+
+
                             </form:form>
 
                         </div>

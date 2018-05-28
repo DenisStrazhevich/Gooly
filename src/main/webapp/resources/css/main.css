@@ -600,3 +600,20 @@ textarea {
     background-color: #333333;
     color: #f0f0f0;
 }
+.cancel_reservation button {
+    margin-left: 110px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 430px;
+    height: 40px;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    font-size: 17px;
+    cursor: pointer;
+}
+.cancel_reservation button:hover {
+
+    background-color: black;
+    color: white;
+}

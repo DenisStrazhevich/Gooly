@@ -164,9 +164,17 @@
                                 <div class="row">
                                     <div class="zakazInfo">
                                         <div class="col-lg-12">
-                                            <p>
-                                                Вы забронировали <b>${orders.orderTableNumber}-ый столик</b>  в заведении <b>${orders.orderInstitutionName}</b> на <b>${orders.orderTime}</b>
-                                            </p>
+                                            <c:if test="${!empty orders.reservationDate}">
+                                                <p>
+                                                    Вы забронировали <b>${orders.orderTableNumber}-ый столик</b>  в заведении <b>${orders.orderInstitutionName}</b> на <b>${orders.orderTime}</b>
+                                                </p>
+                                            </c:if>
+                                            <c:if test="${empty orders.reservationDate}">
+                                                <p>
+                                                    Вы забронировали <b>${orders.orderTableNumber}-ый столик</b>  в заведении <b>${orders.orderInstitutionName}</b>. У вас есть 15 минут!!!
+                                                </p>
+                                            </c:if>
+
                                         </div>
                                     </div>
                                 </div>
@@ -180,6 +188,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <form class="cancel_reservation" method="post" action="<c:url value="/cancel_reservation"/> ">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                    <input type="text" value="${orders.orderInstitutionName}" name="institutionName" hidden="true">
+                                    <input type="text" value="${orders.orderTableNumber}" name="tableNumber" hidden="true">
+                                    <button type="submit">
+                                        Отменить заказ
+                                    </button>
+                                </form>
                             </c:if>
                         </div>
                     </div>

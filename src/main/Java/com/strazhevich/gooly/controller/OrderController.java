@@ -55,6 +55,7 @@ public class OrderController {
         map.put("order", new Orders());
         map.put("institutions", institutionService.getInstitutionByName(name));
         map.put("user",userService.findByUsername(phone));
+        map.put("orderList", orderService.getOrderListByInstitutionName(name));
         model.addAttribute("listTable", tablesService.listTablesByInstitutionName(name));
 
         return "quickorder";
@@ -66,6 +67,6 @@ public class OrderController {
         int tableNumber = order.getOrderTableNumber();
 
         quickOrderService.quickOrder(order,tableNumber);
-        return "redirect:/welcome";
+        return "redirect:/account";
     }
 }
