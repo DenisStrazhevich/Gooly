@@ -36,7 +36,7 @@ public class QuickOrderService  {
     @Transactional
     @Async
     public void quickOrder(Orders order,int number){
-        long delay = 30000;
+        long delay = 65000;
 
         TimerTask timerTask = new TimerTask() {
             @Override

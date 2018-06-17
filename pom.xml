@@ -31,7 +31,7 @@
     <dependencies>
 
 
-
+        <!--QrCode -->
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>

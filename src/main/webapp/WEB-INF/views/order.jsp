@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet"  type="text/css" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="shortcut icon" href="${contextPath}/resources/img/icon.png" type="image/png" />
     <script>
         function change(objName, min, max, step) {
             var obj = document.getElementById(objName);
@@ -87,7 +87,7 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
                             <form method="post" action="<c:url value="/logout"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="form__btn" >
@@ -123,6 +123,15 @@
                                 <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                                 <button type="submit" class="form__btn" >
                                     кабинет
+                                </button><br>
+                            </form>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('ROLE_BAKEHOUSE','ROLE_ADMIN')">
+                            <form method="get" action="<c:url value="/request"/>">
+                                <input type="text" name="institutionName" value="BAKEHOUSE" hidden="true">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="form__btn" >
+                                    заявки
                                 </button><br>
                             </form>
                         </sec:authorize>
@@ -167,10 +176,11 @@
                                         <div class=" col-lg-7">
                                             <div class="date1 d-flex">
                                                 <img src="${contextPath}/resources/img/calendar.png">
-                                                <form:input path="reservationDate" type="date" name="date" value="2018-05-22"/>
-                                                <!--<p>
-                                                    20 мая 2018
-                                                </p>-->
+                                                <!--<form:input path="reservationDate" type="date" name="date" value="2018-05-22"/> -->
+                                                <p>
+                                                    07-06-2018
+                                                </p>
+                                                <form:hidden path="reservationDate" value="2018-06-7"/>
                                             </div>
                                         </div>
                                         <div class="addDel col-lg-5">
@@ -201,9 +211,11 @@
                                         </div>
                                         <div class="statusTime col-lg-5">
                                             <div class="addDel d-flex">
-                                                <form:input path="orderTime" type="time" value="10:00"  />
+                                                <!--<form:input path="orderTime" type="time" value="10:00"  />-->
+                                                <span id="addTime">18:00</span>
+                                                <form:hidden path="orderTime" value="17:00"/>
                                                 <!--<input class="add" type="button" value="+" onclick="addNum()">
-                                                <span id="addTime">10:00</span>
+
                                                 <input class="del" type="button" value="-" onclick="delNum()">-->
                                             </div>
                                         </div>

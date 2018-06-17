@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: denis
-  Date: 27.05.2018
-  Time: 17:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -25,7 +18,6 @@
     <link rel="shortcut icon" href="${contextPath}/resources/img/icon.png" type="image/png" />
 </head>
 <body>
-
 <header id="header" class="header">
     <div class="container">
         <div class="row ">
@@ -114,7 +106,6 @@
                         <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
                             <form method="get" action="<c:url value="/account"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                                 <button type="submit" class="form__btn" >
                                     кабинет
                                 </button><br>
@@ -138,62 +129,51 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="reviews">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1>
-                                        Отзывы ${institution.name}
-                                    </h1>
-                                </div>
-                            </div>
-                            <c:if test="${!empty reviewList}">
-                                <c:forEach items="${reviewList}" var="review">
-                                    <div class="row">
-                                        <div class="reviews__form">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <p class="Name">${review.user_name} ${review.user_surname}</p>
-                                                    <p class="date">${review.date}</p>
-                                                    <p class="review">${review.review}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </c:if>
-                                    <div class="row">
-                                        <div class="reviews__write">
-                                            <div class="col-lg-12">
-
-
-                                                <form:form method="post" class="addReview " action="" commandName="review">
-                                                    <form:input path="user_name" value="${user.name}" hidden="true"/>
-                                                    <form:input path="user_surname" value="${user.fullname}" hidden="true"/>
-                                                    <form:hidden path="institution.id" value="${institution.id}"/>
-                                                    <form:textarea path="review" placeholder="Введите свой отзыв..."/>
-                                                    <button class="pull-right" type="submit" >
-                                                        Добавить
-                                                    </button><br>
-                                                </form:form>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="contacts_Rest">
+                        <h1>
+                            ${institution.name}
+                        </h1>
+                        <div class="contacts__time">
+                            <ul>
+                                <li>
+                                    ${institution.workTime}
+                                </li>
+                                <li id="li_adrs">
+                                    ${institution.address}
+                                </li>
+                            </ul>
                         </div>
+                        <div class="contacts__time">
+                            <ul>
+                                <li class="li_num">
+                                    ${institution.email}
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <br/>
+                        <br/>
+
+                        <div class="contacts__time">
+                            <ul>
+                                <li class="li_num">
+                                    ${institution.phonenumber}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="map">
+                            <script type="text/javascript" charset="utf-8" async src="${institution.location}"></script>
+                        </div>
+
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
+<script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>
 </body>
 </html>

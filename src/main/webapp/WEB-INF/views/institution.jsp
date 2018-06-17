@@ -77,7 +77,7 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
                             <form method="post" action="<c:url value="/logout"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="form__btn" >
@@ -104,7 +104,7 @@
                         </form>
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
-                                кафейни
+                                кофейни
                             </button><br>
                         </form>
                         <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
@@ -113,6 +113,15 @@
                                 <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                                 <button type="submit" class="form__btn" >
                                     кабинет
+                                </button><br>
+                            </form>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('ROLE_BAKEHOUSE','ROLE_ADMIN')">
+                            <form method="get" action="<c:url value="/request"/>">
+                                <input type="text" name="institutionName" value="BAKEHOUSE" hidden="true">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="form__btn" >
+                                    заявки
                                 </button><br>
                             </form>
                         </sec:authorize>
@@ -169,9 +178,11 @@
                                                 <img src="${contextPath}/resources/img/${institution.image}">
                                             </div>
                                             <div class="rest__btn col-lg-3">
-                                                <form action="">
-                                                    <button type="button" >
-                                                        карта
+
+                                                <form action="<c:url value="/contacts"/>">
+                                                    <input type="text" name="institutionName" value="${institution.name}" hidden="true">
+                                                    <button type="submit">
+                                                        Контакты
                                                     </button><br>
                                                 </form>
 
@@ -186,7 +197,7 @@
                                                         меню
                                                     </button><br>
                                                 </form>
-                                                <form action="#">
+                                                <form action="<c:url value="/interior"/> ">
                                                     <button type="submit">
                                                         интерьер
                                                     </button><br>

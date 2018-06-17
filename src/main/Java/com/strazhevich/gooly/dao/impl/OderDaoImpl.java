@@ -57,7 +57,7 @@ public class OderDaoImpl implements OrderDao {
 
     @Override
     public List<Orders> getOrderListByInstitutionName(String name) {
-        Query query = currentSession().createQuery("from Orders where orderInstitutionName =:institutionName");
+        Query query = currentSession().createQuery("from Orders where orderInstitutionName =:institutionName order by reservationDate ASC ");
         query.setParameter("institutionName",name);
         List<Orders> list = query.list();
         return list;

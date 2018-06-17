@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: denis
-  Date: 27.05.2018
-  Time: 17:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -21,11 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,700" rel="stylesheet">
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet"  type="text/css" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="${contextPath}/resources/img/icon.png" type="image/png" />
+
 </head>
 <body>
-
 <header id="header" class="header">
     <div class="container">
         <div class="row ">
@@ -114,7 +108,6 @@
                         <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
                             <form method="get" action="<c:url value="/account"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                                 <button type="submit" class="form__btn" >
                                     кабинет
                                 </button><br>
@@ -129,7 +122,6 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
                                 скидки
@@ -138,61 +130,58 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="reviews">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1>
-                                        Отзывы ${institution.name}
-                                    </h1>
-                                </div>
-                            </div>
-                            <c:if test="${!empty reviewList}">
-                                <c:forEach items="${reviewList}" var="review">
-                                    <div class="row">
-                                        <div class="reviews__form">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <p class="Name">${review.user_name} ${review.user_surname}</p>
-                                                    <p class="date">${review.date}</p>
-                                                    <p class="review">${review.review}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </c:if>
-                                    <div class="row">
-                                        <div class="reviews__write">
-                                            <div class="col-lg-12">
+                    <div class="slideshow-container">
 
-
-                                                <form:form method="post" class="addReview " action="" commandName="review">
-                                                    <form:input path="user_name" value="${user.name}" hidden="true"/>
-                                                    <form:input path="user_surname" value="${user.fullname}" hidden="true"/>
-                                                    <form:hidden path="institution.id" value="${institution.id}"/>
-                                                    <form:textarea path="review" placeholder="Введите свой отзыв..."/>
-                                                    <button class="pull-right" type="submit" >
-                                                        Добавить
-                                                    </button><br>
-                                                </form:form>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="mySlides ">
+                            <div class="numbertext">1 / 4</div>
+                            <img src="${contextPath}/resources/img/interior/1.jpg" style="width:100%">
+                            <div class="text">Caption Text</div>
                         </div>
+
+                        <div class="mySlides ">
+                            <div class="numbertext">2 / 4</div>
+                            <img src="${contextPath}/resources/img/interior/2.jpg" style="width:100%">
+                            <div class="text">Caption Two</div>
+                        </div>
+
+                        <div class="mySlides ">
+                            <div class="numbertext">3 / 4</div>
+                            <img src="${contextPath}/resources/img/interior/3.jpg" style="width:100%">
+                            <div class="text">Caption Three</div>
+                        </div>
+
+                        <div class="mySlides ">
+                            <div class="numbertext">4 / 4</div>
+                            <img src="${contextPath}/resources/img/interior/4.jpg" style="width:100%">
+                            <div class="text">Caption Three</div>
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
                     </div>
+                    <br>
+
+                    <div style="text-align:center" class="dot_form">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+
+                    <p class="description__bar">
+
+                        Мы называем себя рестораном белорусской и литвинской кухни. Если белорусская кухня – это уже устоявшийся стереотип (крестьянская кухня, преимущественно Восточной Беларуси, с преобладанием блюд из картофеля, свинины, грибов), то обозначение «литвинская» требует объяснений. Это кухня шляхты, горожан, духовенства Великого княжества Литовского, в какой-то степени зажиточного крестьянства, характерная скорее для северо-запада Беларуси, для овеянного тысячами легенд пространства между двумя древними столицами – Вильней и Новогрудком. Впрочем, между этими двумя кухнями нет абсолютно резкой границы, они всегда оказывали влияние друг на друга. Например, исконное православное рождественское блюдо – Кутья – стало культовым также и для католиков Литвы и Беларуси, а литовские шляхетские верещака, кумпяк, киндзюк прочно вошли в меню православных белорусов. И это взаимопроникновение продолжается и в наши дни: можно сказать, что ресторан «Кухмістр» находится в самом его центре.
+
+                    </p>
+
+
                 </div>
             </div>
         </div>
     </div>
+
 </section>
-
-
-
-
-
-
-
+<script type="text/javascript" src="${contextPath}/resources/js/script.js"></script>
 
 
 </body>

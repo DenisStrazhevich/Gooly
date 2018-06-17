@@ -139,16 +139,12 @@
 
                                 <div class="row">
                                     <div class="personalInfo d-flex">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <p>
-                                                ${user.name}
+                                                ${user.name} ${user.fullname}
                                             </p>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <p>
-                                                ${user.fullname}
-                                            </p>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -166,7 +162,7 @@
                                         <div class="col-lg-12">
                                             <c:if test="${!empty orders.reservationDate}">
                                                 <p>
-                                                    Вы забронировали <b>${orders.orderTableNumber}-ый столик</b>  в заведении <b>${orders.orderInstitutionName}</b> на <b>${orders.orderTime}</b>
+                                                    Вы забронировали <b>${orders.orderTableNumber}-ый столик</b>  в заведении <b>${orders.orderInstitutionName} ${orders.reservationDate}</b> на <b>${orders.orderTime}</b>
                                                 </p>
                                             </c:if>
                                             <c:if test="${empty orders.reservationDate}">

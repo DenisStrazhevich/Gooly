@@ -1,16 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: denis
-  Date: 27.05.2018
-  Time: 17:54
+  Date: 21.05.2018
+  Time: 19:05
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -25,7 +24,6 @@
     <link rel="shortcut icon" href="${contextPath}/resources/img/icon.png" type="image/png" />
 </head>
 <body>
-
 <header id="header" class="header">
     <div class="container">
         <div class="row ">
@@ -138,47 +136,37 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="reviews">
+                    <div class="personalRoom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h1>
-                                        Отзывы ${institution.name}
+                                        Заявки
                                     </h1>
                                 </div>
                             </div>
-                            <c:if test="${!empty reviewList}">
-                                <c:forEach items="${reviewList}" var="review">
+                            <c:if test="${!empty order}">
+                                <c:forEach items="${order}" var="order">
                                     <div class="row">
-                                        <div class="reviews__form">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <p class="Name">${review.user_name} ${review.user_surname}</p>
-                                                    <p class="date">${review.date}</p>
-                                                    <p class="review">${review.review}</p>
-                                                </div>
+                                        <div class="zakazInfo">
+                                            <div class="col-lg-12">
+                                                <c:if test="${!empty order.reservationDate}">
+                                                    <p>
+                                                        <b>${order.visitorName}</b> забронировал <b>${order.orderTableNumber}</b> столик <b>${order.reservationDate}</b> на <b>${order.orderTime}</b>
+                                                    </p>
+                                                </c:if>
+                                                <c:if test="${empty order.reservationDate}">
+                                                    <p>
+                                                        <b>${order.visitorName}</b> забронировал <b>${order.orderTableNumber}</b> столик.
+                                                    </p>
+                                                </c:if>
+
                                             </div>
                                         </div>
                                     </div>
                                 </c:forEach>
                             </c:if>
-                                    <div class="row">
-                                        <div class="reviews__write">
-                                            <div class="col-lg-12">
 
-
-                                                <form:form method="post" class="addReview " action="" commandName="review">
-                                                    <form:input path="user_name" value="${user.name}" hidden="true"/>
-                                                    <form:input path="user_surname" value="${user.fullname}" hidden="true"/>
-                                                    <form:hidden path="institution.id" value="${institution.id}"/>
-                                                    <form:textarea path="review" placeholder="Введите свой отзыв..."/>
-                                                    <button class="pull-right" type="submit" >
-                                                        Добавить
-                                                    </button><br>
-                                                </form:form>
-                                            </div>
-                                        </div>
-                                    </div>
                         </div>
                     </div>
                 </div>
@@ -186,11 +174,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
 
 
 

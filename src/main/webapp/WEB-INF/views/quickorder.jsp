@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet"  type="text/css" href="${contextPath}/resources/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="shortcut icon" href="${contextPath}/resources/img/icon.png" type="image/png" />
     <script>
         function change(objName, min, max, step) {
             var obj = document.getElementById(objName);
@@ -87,7 +87,7 @@
                                 </button><br>
                             </form>
                         </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN', 'ROLE_BAKEHOUSE', 'ROLE_BEEFBEAR')">
                             <form method="post" action="<c:url value="/logout"/>">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="form__btn" >
@@ -123,6 +123,15 @@
                                 <!--<input type="text" name="phone" value="${pageContext.request.userPrincipal.name}" hidden="true">-->
                                 <button type="submit" class="form__btn" >
                                     кабинет
+                                </button><br>
+                            </form>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('ROLE_BAKEHOUSE','ROLE_ADMIN')">
+                            <form method="get" action="<c:url value="/request"/>">
+                                <input type="text" name="institutionName" value="BAKEHOUSE" hidden="true">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="form__btn" >
+                                    заявки
                                 </button><br>
                             </form>
                         </sec:authorize>
@@ -179,7 +188,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="statusTime col-lg-5">
+                                        <div id="colpupil" class="statusTime col-lg-5">
                                             <div class="addDel d-flex">
                                                 <input class="add" type="button" value="+" onclick="change('add_num',0,10, 1);">
                                                 <form:input path="visitorCount" id="add_num" type="text" readonly="true" value="1"/>

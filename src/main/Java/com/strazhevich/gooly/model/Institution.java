@@ -38,6 +38,9 @@ public class Institution {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "location")
+    private String location;
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "institution")
     private Set<Tables> tables;
 
@@ -130,5 +133,13 @@ public class Institution {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

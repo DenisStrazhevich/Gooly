@@ -266,7 +266,7 @@ ul.oknoZakaza  li {
 }
 .oknoZakaza li {
     float: left;
-    margin-left: 25px;
+    margin-left: 35px;
 }
 .date {
     margin-top: 30px;
@@ -616,4 +616,40 @@ textarea {
 
     background-color: black;
     color: white;
+}
+
+/*Контакты*/
+.contacts_Rest h1 {
+    font-size: 64.74px;
+}
+.contacts_Rest{
+    margin-left: 110px;
+    margin-top: 40px;
+}
+ul.contacts__time  li {
+    display: inline;
+    width: 400px;
+    margin-right: 10px;
+}
+.contacts__time li{
+    float: left;
+    font-size: 25px;
+}
+#li_adrs {
+    margin-left: 60px;
+}
+.li_num {
+    margin-top: 15px;
+}
+.map {
+    text-align: center;
+    margin-top: 180px;
+    margin-bottom: 20px;
+}
+/*-----------------------------------*/
+#colpupil {
+    margin-left: 10px;
+}
+button:hover {
+    cursor: pointer;
 }

@@ -111,7 +111,15 @@
                             </button><br>
                         </form>
                         </sec:authorize>
-
+                        <sec:authorize access="hasAnyRole('ROLE_BAKEHOUSE','ROLE_ADMIN')">
+                            <form method="get" action="<c:url value="/request"/>">
+                                <input type="text" name="institutionName" value="BAKEHOUSE" hidden="true">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <button type="submit" class="form__btn" >
+                                    заявки
+                                </button><br>
+                            </form>
+                        </sec:authorize>
                         <form action="index.jsp">
                             <button type="submit" class="form__btn" >
                                 скидки

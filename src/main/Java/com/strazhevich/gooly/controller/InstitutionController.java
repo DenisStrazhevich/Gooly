@@ -34,6 +34,15 @@ public class InstitutionController {
         return "institution";
     }
 
+    @RequestMapping(value = "/interior", method = RequestMethod.GET)
+    public String getInteriorPage(){
+        return "interior";
+    }
 
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
+    public String getContactsPage(Map<String,Object> map, @RequestParam("institutionName") String name){
+        map.put("institution", institutionService.getInstitutionByName(name));
+        return "contacts";
+    }
 
 }
