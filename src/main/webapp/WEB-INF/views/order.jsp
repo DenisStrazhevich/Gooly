@@ -212,11 +212,11 @@
                                         <div class="statusTime col-lg-5">
                                             <div class="addDel d-flex">
                                                 <!--<form:input path="orderTime" type="time" value="10:00"  />-->
-                                                <span id="addTime">18:00</span>
-                                                <form:hidden path="orderTime" value="17:00"/>
-                                                <!--<input class="add" type="button" value="+" onclick="addNum()">
 
-                                                <input class="del" type="button" value="-" onclick="delNum()">-->
+                                                <form:hidden path="orderTime" value="17:00"/>
+                                                <input class="add" type="button" value="+" onclick="addNum()">
+                                                <span id="addTime">18:00</span>
+                                                <input class="del" type="button" value="-" onclick="delNum()">
                                             </div>
                                         </div>
                                     </div>
